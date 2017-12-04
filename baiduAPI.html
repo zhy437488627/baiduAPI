@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/baiduAPI.css" />
+		
+	</head>
+	<body>
+		<div id="show">
+			<input type="text" id="text" onchange="valueChange()"/>
+			<div id="search">
+				<ul id="aaa">
+					
+				</ul>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+		var oTx=document.getElementById("text");
+		var oSear=document.getElementById("search");
+		var xxx=document.getElementById("aaa");
+
+	function valueChange(){
+		var val=oTx.value;
+		oSear.style.display=val?"block":"none";
+		var josns=document.createElement("script");
+		josns.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=zhy";
+		document.body.appendChild(josns);
+	};
+	function zhy(data){
+		xxx.innerHTML="";
+		data.s.forEach(function(el){
+			
+		var oLi=document.createElement("li");
+			oLi.innerHTML="<a href='https://www.baidu.com/s?wd="+el+"'>"+el+"</a>";
+			xxx.appendChild(oLi);
+
+
+		});
+
+	};
+
+		</script>
+		
+	</body>
+</html>
